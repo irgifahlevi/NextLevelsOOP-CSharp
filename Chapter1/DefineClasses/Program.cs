@@ -9,4 +9,8 @@ Shapes rectangle2 = new Shapes(3);
 Console.WriteLine($"{rectangle1.GetAreas()}");
 Console.WriteLine($"{rectangle2.GetAreas()}");
 
+// memanggil property class
+rectangle1.height = 4;
+rectangle1.width = 5;
 
+Console.WriteLine($"{rectangle1.GetAreas()}");
