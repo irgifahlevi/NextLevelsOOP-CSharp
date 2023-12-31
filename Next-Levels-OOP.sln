@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter1", "Chapter1", "{BD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefineClasses", "Chapter1\DefineClasses\DefineClasses.csproj", "{F28A1AD6-270A-432F-AC05-032A213467E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropsMethods", "Chapter1\PropsMethods\PropsMethods.csproj", "{45274E26-C14B-4E01-A262-A1B7211A0C38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{F28A1AD6-270A-432F-AC05-032A213467E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F28A1AD6-270A-432F-AC05-032A213467E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F28A1AD6-270A-432F-AC05-032A213467E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45274E26-C14B-4E01-A262-A1B7211A0C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45274E26-C14B-4E01-A262-A1B7211A0C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45274E26-C14B-4E01-A262-A1B7211A0C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45274E26-C14B-4E01-A262-A1B7211A0C38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F28A1AD6-270A-432F-AC05-032A213467E0} = {BD020E66-7CD1-4106-9FBC-87731DCCABB0}
+		{45274E26-C14B-4E01-A262-A1B7211A0C38} = {BD020E66-7CD1-4106-9FBC-87731DCCABB0}
 	EndGlobalSection
 EndGlobal
