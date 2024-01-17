@@ -2,6 +2,7 @@ namespace AbstractPropsFunc
 {
     public abstract class Vehicle
     {
+        private const string _sound = "This sound horn : ";
         /// <summary>
         /// Kelas abstrac kelas yang tidak dapat diinstansiasi (dibuat objeknya) secara langsung
         /// kelas abstract digunakan sebagai kerangka dasar untuk kelas-kelas turunannya.
@@ -26,6 +27,9 @@ namespace AbstractPropsFunc
         /// </summary>
         /// <value></value>
         public abstract int WhellCount { get; }
+
+
+        public virtual string Sound { get => _sound; }
         #endregion
 
         #region Methods
@@ -63,7 +67,7 @@ namespace AbstractPropsFunc
         // mengimplementasikan method dari base class
         public override void SoundHorn()
         {
-            Console.WriteLine($"Beep Beep");
+            Console.WriteLine($"{Sound} Beep Beep");
         }
         #endregion
     }
@@ -87,7 +91,7 @@ namespace AbstractPropsFunc
         // mengimplementasikan method dari base class
         public override void SoundHorn()
         {
-            Console.WriteLine($"Honk Honk");
+            Console.WriteLine($"{Sound} Vroom Vroom");
         }
         #endregion
     }
