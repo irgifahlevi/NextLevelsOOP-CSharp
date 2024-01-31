@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Collections;
+using Collections;
 
 string[] names = new string[2];
 
@@ -21,5 +22,21 @@ System.Console.WriteLine("All item list :");
 foreach (var a in arrList)
 {
     System.Console.WriteLine($"- {a},");
+}
+
+System.Console.WriteLine("========= Using Collection Example =========");
+// Colection sample
+CollectionSamples.Queue("A", "B", "C"); // FIFO (First In First Out)
+CollectionSamples.Stack("A", "B", "C"); // LIFO (Last In First Out)
+
+// using stack Generic
+CollectionSamples.StackGeneric("A", "B", "C", "D");
+var custom = new CustomStack<string>();
+
+custom.MyPush(new string[] { "AA", "BB", "CC" });
+System.Console.WriteLine("Stac elements");
+while (custom.Count() > 0)
+{
+    custom.MyPop();
 }
 
