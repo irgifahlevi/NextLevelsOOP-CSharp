@@ -85,5 +85,5 @@ var cust = new Customer
 
 // implements 
 var mapper = new CustomerToPersonMapper();
-var person = mapper.Map(cust);
+var person = cust.Map<Person>(mapper); //mapper.Map(cust);
 System.Console.WriteLine($"First Name = {person.FirstName}");
