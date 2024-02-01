@@ -4,8 +4,8 @@ namespace GenericsConstraints
     {
         public int Id { get; set; }
         public DateOnly CreateDate { get; set; }
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
         // Implements method interface
         public int CompareTo(Customer other)

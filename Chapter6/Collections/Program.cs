@@ -50,3 +50,11 @@ MyCollections.Indexing();
 MyCollections.Iterating();
 
 
+System.Console.WriteLine("========= Working With Key Collection =========");
+System.Console.WriteLine();
+System.Console.WriteLine();
+
+MyCollections.Dictionary();
+MyCollections.NameValue();
+
+
