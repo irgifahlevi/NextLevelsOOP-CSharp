@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Collections.Specialized;
 
 namespace Collections
@@ -147,6 +148,21 @@ namespace Collections
             foreach (var item in items.AllKeys)
             {
                 System.Console.WriteLine(items[item]);
+            }
+        }
+
+        public static void Concurrent()
+        {
+            var bag = new ConcurrentBag<Person>();
+
+            bag.Add(new Person { Id = 1, FirstName = "Jack", LastName = "Miller", Age = 34 });
+            bag.Add(new Person { Id = 2, FirstName = "Mawi", LastName = "Are", Age = 34 });
+            bag.Add(new Person { Id = 3, FirstName = "Claude", LastName = "Khalifa", Age = 34 });
+            bag.Add(new Person { Id = 4, FirstName = "Danils" });
+
+            foreach (var items in bag)
+            {
+                System.Console.WriteLine($"Concurrent {items.FirstName}{items.LastName}");
             }
         }
 
