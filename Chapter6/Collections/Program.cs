@@ -25,6 +25,8 @@ foreach (var a in arrList)
 }
 
 System.Console.WriteLine("========= Using Collection Example =========");
+System.Console.WriteLine();
+System.Console.WriteLine();
 // Colection sample
 CollectionSamples.Queue("A", "B", "C"); // FIFO (First In First Out)
 CollectionSamples.Stack("A", "B", "C"); // LIFO (Last In First Out)
@@ -39,4 +41,12 @@ while (custom.Count() > 0)
 {
     custom.MyPop();
 }
+
+System.Console.WriteLine("========= Working With Collection =========");
+System.Console.WriteLine();
+System.Console.WriteLine();
+
+MyCollections.Indexing();
+MyCollections.Iterating();
+
 
