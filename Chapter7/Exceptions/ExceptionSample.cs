@@ -11,7 +11,7 @@ namespace Exceptions
             string truePath = @"F:\Project\DOTNET\NextLevelsOOP-CSharp\Chapter7\Exceptions\ReadME.JSON";
 
             // Basic try catch
-            string filePath = wrongPath;
+            string filePath = truePath;
             //System.IO.Stream fileStream = null;
             System.Console.WriteLine($"Current directory : {Directory.GetCurrentDirectory()}");
             try
@@ -42,7 +42,10 @@ namespace Exceptions
             {
                 System.Console.WriteLine($"{iox.Message}");
             }
+            // menggunakan klausa when 
             catch (JsonException jex)
+                when (jex.Message.Contains("converted", StringComparison.OrdinalIgnoreCase) ||
+                jex.Message.Contains("invalid after a value", StringComparison.OrdinalIgnoreCase))
             {
                 System.Console.WriteLine($"{jex.Message}");
             }
@@ -60,6 +63,25 @@ namespace Exceptions
                 //     // Memastikan bahwa fileStream ditutup (dispose) agar tidak ada kebocoran sumber daya
                 //     fileStream.Dispose();
                 // }
+            }
+        }
+
+        public static void ThrowExceptions(bool? shouldThrow)
+        {
+            // jika value = null
+            if (!shouldThrow.HasValue)
+            {
+                throw new ArgumentNullException("Should throw");
+            }
+
+            // jika value any
+            if (shouldThrow.Value)
+            {
+                throw new InvalidException("I was told to throw this!");
+            }
+            else
+            {
+                System.Console.WriteLine("No exceptions being thrown here");
             }
         }
     }
