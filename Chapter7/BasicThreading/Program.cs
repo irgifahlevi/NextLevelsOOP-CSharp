@@ -4,6 +4,9 @@ using BasicThreading;
 try
 {
     ThreadingSample.MyThread();
+
+    // asyncronus 
+    await AsyncSample.SampleReadAsync();
 }
 catch (Exception ex)
 {

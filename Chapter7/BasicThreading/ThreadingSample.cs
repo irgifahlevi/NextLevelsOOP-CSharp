@@ -13,8 +13,10 @@ namespace BasicThreading
             Thread t = new Thread(Reading);
 
             t.Start();
-            System.Console.WriteLine("Work happening in main thread :D");
             t.Join();
+            System.Console.WriteLine("Work happening in main thread :D");
+
+            System.Console.WriteLine("After all done");
         }
 
         private static void Reading()
