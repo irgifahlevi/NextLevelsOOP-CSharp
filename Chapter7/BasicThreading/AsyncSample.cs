@@ -73,5 +73,56 @@ namespace BasicThreading
                 throw new ArgumentException(ex.Message, ex);
             }
         }
+
+
+        public static async Task AsyncHandler()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            System.Console.WriteLine($"Main thread id form async : {Thread.CurrentThread.ManagedThreadId}");
+            Console.ResetColor();
+
+            try
+            {
+                Task tExcept1 = ReadFileAsync("exception1");
+                Task tExcept2 = ReadFileAsync("exception255");
+                System.Console.WriteLine($"Work happening in main async :D");
+                Task.WaitAll(tExcept1, tExcept2);
+            }
+            catch (AggregateException aex)
+            {
+                aex.Handle((inner) =>
+                {
+                    if (inner is JsonException)
+                    {
+                        System.Console.WriteLine($"Json exception handled : {inner.Message}");
+                        return true;
+                    }
+                    return false;
+                });
+
+                foreach (var innerExcept in aex.InnerExceptions)
+                {
+                    System.Console.WriteLine(innerExcept.Message);
+                }
+            }
+
+
+        }
+
+        private static async Task ReadFileAsync(string employee)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            System.Console.WriteLine($"File acccess thread id from async : {Thread.CurrentThread.ManagedThreadId}");
+            Console.ResetColor();
+
+            // Menyusun path lengkap dengan menggunakan Path.Combine
+            string truePath = Path.Combine(@"F:\Project\DOTNET\NextLevelsOOP-CSharp\Chapter7\BasicThreading\", $"{employee}.JSON");
+            var fileStream = await File.ReadAllTextAsync(truePath);
+            var data = JsonSerializer.Deserialize<Employee>(fileStream);
+            if (data != null)
+            {
+                System.Console.WriteLine($"Employee read from file : {data.Id} {data.FirstName}");
+            }
+        }
     }
 }
