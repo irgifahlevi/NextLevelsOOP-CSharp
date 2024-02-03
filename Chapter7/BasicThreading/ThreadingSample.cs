@@ -25,7 +25,7 @@ namespace BasicThreading
             System.Console.WriteLine($"File access thread id : {Thread.CurrentThread.ManagedThreadId}");
             Console.ResetColor();
 
-            string truePath = @"F:\Project\DOTNET\NextLevelsOOP-CSharp\Chapter7\BasicThreading\ReadME.JSON";
+            string truePath = @"F:\Project\DOTNET\NextLevelsOOP-CSharp\Chapter7\BasicThreading\jennifer.JSON";
 
             try
             {

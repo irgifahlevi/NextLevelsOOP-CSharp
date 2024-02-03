@@ -17,20 +17,30 @@ namespace BasicThreading
             // method ini dilakukan secara asinkron, yang berarti tidak akan memblokir eksekusi program.
             // await digunakan untuk menunggu hasil dari operasi asinkron sebelum melanjutkan eksekusi kode selanjutnya.
             // await memastikan bahwa program akan menunggu hingga berkas selesai dibaca sebelum melanjutkan ke baris kode selanjutnya. 
-            await ReadAsync();
+            //await ReadAsync("jennifer");
+
+            // Membuat objek Task untuk membaca file "jennifer" secara asinkron
+            Task tJennifer = ReadAsync("jennifer");
+
+            // Membuat objek Task untuk membaca file "lucas" secara asinkron
+            Task tLucas = ReadAsync("lucas");
 
             System.Console.WriteLine($"Work happening in main async :D");
+
+            // Menunggu kedua Task selesai sebelum melanjutkan eksekusi
+            await Task.WhenAll(tJennifer, tLucas);
+
         }
 
 
-        private static async Task ReadAsync()
+        private static async Task ReadAsync(string employee)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             System.Console.WriteLine($"File acccess thread id from async : {Thread.CurrentThread.ManagedThreadId}");
             Console.ResetColor();
 
-            string truePath = @"F:\Project\DOTNET\NextLevelsOOP-CSharp\Chapter7\BasicThreading\ReadME.JSON";
-
+            // Menyusun path lengkap dengan menggunakan Path.Combine
+            string truePath = Path.Combine(@"F:\Project\DOTNET\NextLevelsOOP-CSharp\Chapter7\BasicThreading\", $"{employee}.JSON");
             try
             {
                 // method ini Operasi ini dilakukan secara asinkron, yang berarti tidak akan memblokir eksekusi program.
