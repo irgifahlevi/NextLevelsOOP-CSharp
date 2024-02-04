@@ -45,8 +45,8 @@ System.Console.WriteLine();
 System.Console.WriteLine("========PLAYER EVENTS DELEGATE========");
 System.Console.WriteLine();
 
-Player.AchievmentsUnlocked += OnAchievmentsUnlocked;
-Player.AchievmentsUnlocked += PlayerSubcriber.SubcriberPlayerSend;
+Player.AchievementsUnlocked += OnAchievmentsUnlocked;
+Player.AchievementsUnlocked += PlayerSubcriber.SubcriberPlayerSend;
 
 // Player events and delegate
 Player.AddPoints(10);
