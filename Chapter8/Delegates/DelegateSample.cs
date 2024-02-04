@@ -7,6 +7,9 @@ namespace Delegates
         public delegate void Del(string input);
         public delegate void MyDelegate(string myInput);
 
+        // event delegate
+        public static event Del? SomethingHappened;
+
         // Metode yang mengambil parameter delegate Del sebagai argumen.
         public static void PassMeWork(Del work)
         {
@@ -28,6 +31,17 @@ namespace Delegates
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             System.Console.WriteLine(msg);
             Console.ResetColor();
+        }
+
+
+        // method triger event
+        public static void DoSomething()
+        {
+            System.Console.WriteLine("I'm about to do something.");
+            if (SomethingHappened != null)
+            {
+                SomethingHappened("I did something");
+            }
         }
     }
 }
