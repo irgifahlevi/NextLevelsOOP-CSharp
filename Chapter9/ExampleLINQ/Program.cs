@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 // implementasi LINQ
 
+using System.Xml.Linq;
 using ExampleLINQ;
 
 var employes = new List<Employee>
@@ -32,3 +33,26 @@ var dataEmployee2 = from emp in employes
                     where emp.Salary >= 3.000 & emp.Salary <= 4.000 // where merupakan criteria
                     orderby emp.Id descending
                     select new { Id = emp.Id, FirstName = emp.FirstName, Age = emp.Age, Salary = emp.Salary };
+
+
+// Read data xml
+var xmlEmployee = XElement.Load("F:\\Project\\DOTNET\\NextLevelsOOP-CSharp\\Chapter9\\ExampleLINQ\\Employes.xml");
+if (xmlEmployee != null)
+{
+    var xEmpLinq = from xE in xmlEmployee.Descendants("Employee")
+                   where (int?)xE.Element("Id") > 2
+                   orderby (int?)xE.Element("Id") descending
+                   select new
+                   {
+                       FirstName = xE.Element("FirstName"),
+                       LastName = xE.Element("LastName"),
+                       Salary = xE.Element("Salary"),
+                   };
+
+
+    foreach (var data in xEmpLinq)
+    {
+        System.Console.WriteLine($"Name : {data.FirstName.Value} {data.LastName.Value}, Salary : {data.Salary.Value}");
+    }
+}
+
