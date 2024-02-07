@@ -56,6 +56,43 @@ public class Program
         };
 
         myDelAnonymous("Hello you!");
+
+
+        System.Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        System.Console.WriteLine("===== For Composable Delegate ===== ");
+        Console.ResetColor();
+        System.Console.WriteLine();
+
+        // Deklarasi dan inisialisasi nilai variabel a dan b
+        int a = 10;
+        int b = 20;
+
+        // Mendeklarasikan delegate dan mengatribusikan metode dari kelas ComposableDelegate ke dalamnya
+        ComposableDelegate.MyDelegateComposable del1 = ComposableDelegate.Method1;
+        ComposableDelegate.MyDelegateComposable del2 = ComposableDelegate.Method2;
+
+        // Menggabungkan dua delegate menjadi satu menggunakan operator +
+        ComposableDelegate.MyDelegateComposable? delCompose = del1 + del2; // method1 + method2
+
+        // Memanggil delegate pertama (del1)
+        System.Console.WriteLine("Calling first delegate");
+        del1(a, b); // 10 + 20
+
+        // Memanggil delegate kedua (del2)
+        System.Console.WriteLine("Calling second delegate");
+        del2(a, b);
+
+        // Memanggil delegate yang sudah dikomposisikan (delCompose)
+        System.Console.WriteLine("Calling the chained delegate");
+        delCompose(a, b);
+
+        // Menghapus satu metode dari delegate yang sudah dikomposisikan
+        System.Console.WriteLine("Calling unchained delegate");
+        delCompose -= del1;
+        delCompose(b, b);
+
+
     }
 }
 
